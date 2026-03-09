@@ -14,6 +14,8 @@ description: >-
   DO NOT USE FOR: pip, npm, yarn, apt, yum, dnf, chocolatey, snap, flatpak.
 argument-hint: "What do you want to do with Homebrew?"
 user-invocable: true
+version: "1.1.0"
+maintainer: TzoharLary
 ---
 
 # Homebrew Expert Skill
