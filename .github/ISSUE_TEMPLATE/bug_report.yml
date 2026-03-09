@@ -1,0 +1,64 @@
+name: Bug Report
+description: Report an incorrect or outdated command, output, or explanation in the skill
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report an issue. Please provide as much detail as possible.
+        All corrections must be backed by official Homebrew documentation.
+
+  - type: dropdown
+    id: section
+    attributes:
+      label: Affected section
+      description: Which part of the skill contains the issue?
+      options:
+        - homebrew/SKILL.md
+        - homebrew/references/commands.md
+        - homebrew/references/workflows.md
+        - homebrew/references/env-vars.md
+        - homebrew/references/disk-space.md
+        - homebrew/references/platform-guide.md
+        - homebrew/references/troubleshooting.md
+        - homebrew/EXAMPLES.md
+        - homebrew/README.md
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current (incorrect) content
+      description: Copy the exact text or command that is wrong
+      placeholder: "e.g. `brew cleanup --prune` removes all cache"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected (correct) content
+      description: What should it say instead?
+      placeholder: "e.g. `brew cleanup --prune=all` removes all cache (--prune alone requires a number of days)"
+    validations:
+      required: true
+
+  - type: input
+    id: source-url
+    attributes:
+      label: Official documentation link
+      description: Link to the official docs.brew.sh page that confirms the correct behavior
+      placeholder: "https://docs.brew.sh/Manpage#cleanup-subcommand-options-formula-cask"
+    validations:
+      required: true
+
+  - type: input
+    id: brew-version
+    attributes:
+      label: Homebrew version (optional)
+      description: Run `brew --version` to get this
+      placeholder: "Homebrew 4.2.0"
+    validations:
+      required: false

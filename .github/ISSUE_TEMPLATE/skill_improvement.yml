@@ -1,0 +1,53 @@
+name: Skill Improvement
+description: Suggest adding new content or improving existing coverage
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to suggest adding new runtime paths, new examples, new commands,
+        or other improvements to the skill content. All additions must cite official sources.
+
+  - type: dropdown
+    id: improvement-type
+    attributes:
+      label: Type of improvement
+      options:
+        - New runtime install path
+        - New Homebrew command or flag
+        - New usage example
+        - Expand existing section
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What should be added or changed?
+      description: Describe the improvement in concrete terms
+      placeholder: |
+        Add a section about `brew readall` — it reads all formula files and
+        checks for syntax errors. Useful for tap maintainers.
+    validations:
+      required: true
+
+  - type: input
+    id: source-url
+    attributes:
+      label: Official documentation link
+      description: Link to the official source that supports this addition
+      placeholder: "https://docs.brew.sh/Manpage"
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example prompt and response (optional)
+      description: If adding a new example, provide a sample prompt and the ideal response
+      placeholder: |
+        Prompt: How do I check if all formulae in my tap have valid syntax?
+        Response: Run `brew readall <tap>` ...
+    validations:
+      required: false
