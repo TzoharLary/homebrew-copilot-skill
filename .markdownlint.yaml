@@ -1,0 +1,8 @@
+# markdownlint configuration
+# See: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+
+# MD013: Line length — disabled (long tables and code blocks make this impractical)
+MD013: false
+
+# MD033: Inline HTML — disabled (shield badges and some table formatting use HTML)
+MD033: false
