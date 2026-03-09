@@ -1,5 +1,7 @@
 # homebrew-copilot-skill
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A production-quality [GitHub Copilot Agent Skill](https://code.visualstudio.com/docs/copilot/customization/agent-skills) for [Homebrew](https://brew.sh) — the package manager for macOS and Linux. Once installed, Copilot will automatically use expert Homebrew knowledge when answering your questions.
 
 ---
@@ -38,7 +40,7 @@ Then ask Copilot:
 How do I free up disk space used by Homebrew?
 ```
 
-Full installation options (sparse checkout, manual download, verification steps, uninstall) are in [homebrew/README.md](homebrew/README.md).
+Also works with Codex and Claude Code — see [homebrew/README.md](homebrew/README.md) for all runtime install paths.
 
 ---
 
@@ -48,6 +50,7 @@ Full installation options (sparse checkout, manual download, verification steps,
 homebrew/
 ├── SKILL.md                     ← core skill (auto-loaded by Copilot)
 ├── README.md                    ← full install guide
+├── EXAMPLES.md                  ← example prompts and responses
 └── references/
     ├── commands.md              ← every command with every option
     ├── workflows.md             ← step-by-step maintenance recipes
@@ -67,10 +70,11 @@ All implementation decisions are documented in the [`research/skill-design`](htt
 - Platform difference research
 - Environment variable reference
 - Agent Skills format specification
+- Runtime compatibility research (GitHub Copilot, Codex, Claude Code)
 - Implementation plan reviewed 5 times before execution
 
 ---
 
 ## License
 
-MIT
+[MIT](LICENSE)
