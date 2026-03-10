@@ -6,10 +6,8 @@
 
 <br>
 
-<a href="#github-copilot"><img src="https://img.shields.io/badge/GitHub_Copilot-0078d7?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Copilot"></a>
-&nbsp;
-<a href="#openai-codex"><img src="https://img.shields.io/badge/OpenAI_Codex-10a37f?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI Codex"></a>
-&nbsp;
+<a href="#github-copilot"><img src="https://img.shields.io/badge/GitHub_Copilot-0078d7?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Copilot"></a>&nbsp;
+<a href="#openai-codex"><img src="https://img.shields.io/badge/OpenAI_Codex-10a37f?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI Codex"></a>&nbsp;
 <a href="#claude-code"><img src="https://img.shields.io/badge/Claude_Code-d45f00?style=for-the-badge" alt="Claude Code"></a>
 
 </div>
@@ -38,14 +36,25 @@
 
 &nbsp;
 
-VS Code and VS Code Insiders share the same skills directory — install once and it works in both.
+The `github.copilot-chat` extension supports both global and project-local skills. VS Code and VS Code Insiders share the same skills directory — install once and it works in both.
 
 ### Install
+
+**Global** *(recommended — Homebrew is a system-wide tool)*
 
 ```bash
 mkdir -p ~/.copilot/skills
 git clone https://github.com/TzoharLary/homebrew-copilot-skill /tmp/hbc
 cp -r /tmp/hbc/homebrew ~/.copilot/skills/homebrew
+rm -rf /tmp/hbc
+```
+
+**Project-local** *(active only in this repository)*
+
+```bash
+mkdir -p .github/skills
+git clone https://github.com/TzoharLary/homebrew-copilot-skill /tmp/hbc
+cp -r /tmp/hbc/homebrew .github/skills/homebrew
 rm -rf /tmp/hbc
 ```
 
@@ -61,14 +70,16 @@ rm -rf /tmp/hbc
 ### Update
 
 ```bash
-rm -rf ~/.copilot/skills/homebrew
+rm -rf ~/.copilot/skills/homebrew     # global
+# rm -rf .github/skills/homebrew    # project-local
 # Re-run the install commands above
 ```
 
 ### Uninstall
 
 ```bash
-rm -rf ~/.copilot/skills/homebrew
+rm -rf ~/.copilot/skills/homebrew     # global
+rm -rf .github/skills/homebrew        # project-local (if installed)
 ```
 
 </details>
