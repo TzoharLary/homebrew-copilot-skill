@@ -1,50 +1,39 @@
-# Homebrew Copilot Skill — Installation Guide
+# Homebrew Skill — Installation Guide
 
-This skill provides expert Homebrew guidance to GitHub Copilot, Codex, and Claude Code. Once installed, your AI assistant will automatically use it when you ask questions about `brew` commands, package management, disk space, maintenance workflows, environment variables, and more.
+Expert Homebrew guidance for your AI assistant. Each runtime section below is fully self-contained — find your tool and follow it straight through.
 
 ---
 
-## Runtime Compatibility
+## Choose Your Runtime
 
-| Runtime | Extension / App | Supported |
-|---------|----------------|-----------|
-| **GitHub Copilot** | `github.copilot-chat` (VS Code) | ✅ Full support |
-| **Codex** | `openai.chatgpt` (VS Code) | ✅ Full support |
-| **Claude Code** | `claude.ai/code` | ✅ Full support |
+<div align="center">
+
+| ⬇️ [GitHub Copilot](#github-copilot) | ⬇️ [Codex](#codex) | ⬇️ [Claude Code](#claude-code) |
+|:------------------------------------:|:-------------------:|:------------------------------:|
+| VS Code · VS Code Insiders | `openai.chatgpt` extension | `claude.ai/code` desktop app |
+
+</div>
+
+---
+
+## Runtime Support
+
+| Runtime | Extension / App | Status |
+|---------|----------------|--------|
+| **GitHub Copilot** | `github.copilot-chat` (VS Code) | ✅ Supported |
+| **Codex** | `openai.chatgpt` (VS Code) | ✅ Supported |
+| **Claude Code** | `claude.ai/code` | ✅ Supported |
 | Google Cloud Code | `googlecloudtools.cloudcode` | ❌ Not supported¹ |
 
-> ¹ Google Cloud Code is a GCP infrastructure tool (GKE/Cloud Run). Its AI assistance (Gemini Code Assist) uses its own context system and does not implement the Agent Skills standard.
+> ¹ Google Cloud Code is a GCP infrastructure tool (GKE/Cloud Run). Its AI assistance (Gemini Code Assist) does not implement the Agent Skills protocol.
 
 ---
 
-## Prerequisites
+## GitHub Copilot
 
-- **git** (to clone this repo)
-- One of the supported runtimes above
+Applies to: **VS Code** and **VS Code Insiders** — they share the same skills directory, so install once and it works in both.
 
----
-
-## Installation
-
-### GitHub Copilot (VS Code / VS Code Insiders)
-
-> VS Code and VS Code Insiders share the same personal skills directory. Install once, works in both.
-
-**Method 1: Direct Clone (Recommended)**
-
-```bash
-mkdir -p ~/.copilot/skills
-git clone --depth=1 --filter=blob:none --sparse \
-  https://github.com/TzoharLary/homebrew-copilot-skill \
-  ~/.copilot/skills/homebrew-repo
-
-cd ~/.copilot/skills/homebrew-repo
-git sparse-checkout set homebrew
-mv homebrew ~/.copilot/skills/homebrew
-cd .. && rm -rf homebrew-repo
-```
-
-**Method 2: Clone Full Repo (Simplest)**
+### Install
 
 ```bash
 mkdir -p ~/.copilot/skills
@@ -53,99 +42,126 @@ cp -r /tmp/hbc/homebrew ~/.copilot/skills/homebrew
 rm -rf /tmp/hbc
 ```
 
-**Method 3: Manual Download**
+### Verify
 
-1. Download: [GitHub → Code → Download ZIP](https://github.com/TzoharLary/homebrew-copilot-skill/archive/refs/heads/main.zip)
-2. Extract and copy:
-   ```bash
-   mkdir -p ~/.copilot/skills
-   cp -r ~/Downloads/homebrew-copilot-skill-main/homebrew ~/.copilot/skills/homebrew
+1. Restart VS Code and open Copilot Chat (`⌘⇧I` on Mac · `Ctrl+Shift+I` on Windows/Linux)
+2. Ask:
    ```
+   How do I free up disk space used by Homebrew?
+   ```
+3. ✅ **Expected:** A step-by-step answer that mentions `brew info --sizes --installed`, `brew cleanup --dry-run`, `brew cleanup`, and `brew autoremove`. If those commands appear — the skill is active.
+
+### Update
+
+```bash
+rm -rf ~/.copilot/skills/homebrew
+# Re-run the Install commands above
+```
+
+### Uninstall
+
+```bash
+rm -rf ~/.copilot/skills/homebrew
+```
 
 ---
 
-### Codex (`openai.chatgpt` VS Code extension)
+## Codex
+
+Applies to: the **`openai.chatgpt`** extension in VS Code. Skills can be global (all projects) or project-local.
+
+### Install
+
+**Global — recommended for a system-wide tool like Homebrew:**
 
 ```bash
-# Global (all projects)
 mkdir -p ~/.codex/skills
+git clone https://github.com/TzoharLary/homebrew-copilot-skill /tmp/hbc
 cp -r /tmp/hbc/homebrew ~/.codex/skills/homebrew
+rm -rf /tmp/hbc
+```
 
-# Project-local (current repo only)
+**Project-local — active only in the current repository:**
+
+```bash
 mkdir -p .codex/skills
+git clone https://github.com/TzoharLary/homebrew-copilot-skill /tmp/hbc
 cp -r /tmp/hbc/homebrew .codex/skills/homebrew
+rm -rf /tmp/hbc
+```
+
+### Verify
+
+1. Open the Codex chat panel in VS Code
+2. Ask:
+   ```
+   How do I free up disk space used by Homebrew?
+   ```
+3. ✅ **Expected:** A step-by-step answer that mentions `brew info --sizes --installed`, `brew cleanup --dry-run`, `brew cleanup`, and `brew autoremove`. If those commands appear — the skill is active.
+
+### Update
+
+```bash
+rm -rf ~/.codex/skills/homebrew     # global
+# rm -rf .codex/skills/homebrew    # project-local
+# Re-run the Install commands above
+```
+
+### Uninstall
+
+```bash
+rm -rf ~/.codex/skills/homebrew     # global
+rm -rf .codex/skills/homebrew       # project-local (if installed)
 ```
 
 ---
 
-### Claude Code
+## Claude Code
+
+Applies to: the **Claude Code** desktop app (`claude.ai/code`). Skills can be global (all projects) or project-local.
+
+### Install
+
+**Global — recommended for a system-wide tool like Homebrew:**
 
 ```bash
-# Global (all projects) — personal skills
 mkdir -p ~/.claude/skills
+git clone https://github.com/TzoharLary/homebrew-copilot-skill /tmp/hbc
 cp -r /tmp/hbc/homebrew ~/.claude/skills/homebrew
+rm -rf /tmp/hbc
+```
 
-# Project-local (current repo only)
+**Project-local — active only in the current repository:**
+
+```bash
 mkdir -p .claude/skills
+git clone https://github.com/TzoharLary/homebrew-copilot-skill /tmp/hbc
 cp -r /tmp/hbc/homebrew .claude/skills/homebrew
+rm -rf /tmp/hbc
 ```
 
----
+### Verify
 
-## Verify Installation
+1. Open Claude Code and start a new conversation
+2. Ask:
+   ```
+   How do I free up disk space used by Homebrew?
+   ```
+3. ✅ **Expected:** A step-by-step answer that mentions `brew info --sizes --installed`, `brew cleanup --dry-run`, `brew cleanup`, and `brew autoremove`. If those commands appear — the skill is active.
 
-Open your AI assistant's chat and ask:
-
-```
-How do I free up disk space used by Homebrew?
-```
-
-You should get a detailed, step-by-step answer using `brew cleanup`, `brew autoremove`, and `brew info --sizes`.
-
-To explicitly invoke the skill by name:
-
-```
-Use the homebrew skill to show me the weekly maintenance workflow
-```
-
----
-
-## Usage Examples
-
-See [EXAMPLES.md](EXAMPLES.md) for prompt/response pairs showing the skill in action.
-
-Quick examples:
-
-- `How much disk space is Homebrew using and how do I free it up?`
-- `I switched from an Intel Mac to an M3. How do I migrate my Homebrew setup?`
-- `How do I update apps like Chrome that Homebrew usually skips?`
-- `Create a Brewfile that I can use to restore my setup on a new machine`
-
----
-
-## Updating the Skill
+### Update
 
 ```bash
-# Remove old version and re-install
-rm -rf ~/.copilot/skills/homebrew
-# (then repeat the install commands above)
+rm -rf ~/.claude/skills/homebrew    # global
+# rm -rf .claude/skills/homebrew   # project-local
+# Re-run the Install commands above
 ```
 
-For Codex/Claude Code, replace `~/.copilot/skills/homebrew` with the appropriate path.
-
----
-
-## Uninstallation
+### Uninstall
 
 ```bash
-# GitHub Copilot
-rm -rf ~/.copilot/skills/homebrew
-
-# Codex (global)
-rm -rf ~/.codex/skills/homebrew
-
-# Claude Code (global)
-rm -rf ~/.claude/skills/homebrew
+rm -rf ~/.claude/skills/homebrew    # global
+rm -rf .claude/skills/homebrew      # project-local (if installed)
 ```
 
 ---
@@ -156,10 +172,23 @@ rm -rf ~/.claude/skills/homebrew
 - The correct `update` → `upgrade` → `cleanup` → `autoremove` → `doctor` order
 - Disk space management: assessment, cleanup, orphan removal, cache nuking
 - Platform differences (Intel Mac / Apple Silicon / Linux)
-- Cask upgrade gotchas: `--greedy`, macOS Ventura permissions
+- Cask upgrade gotchas: `--greedy`, macOS Ventura App Management permissions
 - Environment variable reference (`HOMEBREW_*`)
 - Brewfile backup and restore across machines
 - `brew services` for launchd service management
 - Pinning, version management, keg-only formulae
 - Tap management
 - Troubleshooting: `brew doctor`, `brew link`, `brew missing`, `brew migrate`
+
+---
+
+## Usage Examples
+
+→ See [EXAMPLES.md](EXAMPLES.md) for complete prompt/response pairs.
+
+Quick prompts to try after installing:
+
+- `How much disk space is Homebrew using and how do I free it up?`
+- `I switched from an Intel Mac to an M3. How do I migrate my Homebrew setup?`
+- `How do I update apps like Chrome that Homebrew usually skips?`
+- `Create a Brewfile that I can use to restore my setup on a new machine`
