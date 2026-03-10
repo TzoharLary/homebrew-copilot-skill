@@ -1,6 +1,6 @@
-<div align="center">
+# Homebrew Skill — Install Guide
 
-# 🍺 Homebrew Skill — Install Guide
+<div align="center">
 
 **Choose your runtime below. Each section is self-contained.**
 
@@ -17,7 +17,7 @@
 ## Runtime Support
 
 | Runtime | Extension / App | Scope | Status |
-|---------|----------------|-------|--------|
+| --- | --- | --- | --- |
 | **GitHub Copilot** | `github.copilot-chat` | Global + Project-local | ✅ Supported |
 | **OpenAI Codex** | `openai.chatgpt` | Global + Project-local *(prefer global)* | ✅ Supported |
 | **Claude Code** | `claude.ai/code` | Global + Project-local *(prefer global)* | ✅ Supported |
