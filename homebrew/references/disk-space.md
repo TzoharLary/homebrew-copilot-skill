@@ -50,7 +50,7 @@ brew cleanup --dry-run
 ```
 
 Example output:
-```
+```text
 Removing: /opt/homebrew/Cellar/git/2.43.0... (5.1MB)
 Removing: /Users/username/Library/Caches/Homebrew/downloads/... (38.5MB)
 This operation would free approximately 210.4MB of disk space.
@@ -118,7 +118,7 @@ brew uninstall --force git
 
 ### More Aggressive Auto-Cleanup
 Set in `~/.homebrew/brew.env`:
-```
+```text
 HOMEBREW_CLEANUP_MAX_AGE_DAYS=7
 HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=7
 ```
