@@ -59,23 +59,25 @@ This skill gives your AI assistant **expert-level Homebrew knowledge** — maint
 
 ## Quick Install
 
-```bash
-# GitHub Copilot (VS Code / VS Code Insiders)
-mkdir -p ~/.copilot/skills
-git clone https://github.com/TzoharLary/homebrew-copilot-skill /tmp/hbc
-cp -r /tmp/hbc/homebrew ~/.copilot/skills/homebrew && rm -rf /tmp/hbc
-```
+**Choose your runtime:** [GitHub Copilot](homebrew/README.md#github-copilot) · [OpenAI Codex](homebrew/README.md#openai-codex) · [Claude Code](homebrew/README.md#claude-code)
 
-Using **Codex** or **Claude Code**? → [Install guide for all runtimes](homebrew/README.md)
+### Installation Paths
+
+| Runtime | Global Path | Project-Local Path |
+|---------|-------------|-------------------|
+| **GitHub Copilot** | `~/.copilot/skills/homebrew` | `./.copilot/skills/homebrew` |
+| **OpenAI Codex** | `~/.codex/skills/homebrew` *(prefer global)* | `./.codex/skills/homebrew` |
+| **Claude Code** | `~/.claude/skills/homebrew` *(prefer global)* | `./.claude/skills/homebrew` |
+
+→ [Full install guide for all runtimes](homebrew/README.md)
 
 &nbsp;
 
 ## What's Covered
 
 <details>
-<summary><strong>13 topics &nbsp;·&nbsp; 6 reference files</strong></summary>
-
-&nbsp;
+<summary><strong>13 topics &nbsp;·&nbsp; 7 source files (SKILL.md + 6 guides)</strong></summary>
+<br>
 
 | Topic | Details |
 |-------|----------|

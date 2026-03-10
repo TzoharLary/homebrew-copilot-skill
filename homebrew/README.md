@@ -20,9 +20,9 @@
 
 | Runtime | Extension / App | Scope | Status |
 |---------|----------------|-------|--------|
-| **GitHub Copilot** | `github.copilot-chat` | User-level | ✅ Supported |
-| **OpenAI Codex** | `openai.chatgpt` | Global or project | ✅ Supported |
-| **Claude Code** | `claude.ai/code` | Global or project | ✅ Supported |
+| **GitHub Copilot** | `github.copilot-chat` | Global + Project-local | ✅ Supported |
+| **OpenAI Codex** | `openai.chatgpt` | Global + Project-local *(prefer global)* | ✅ Supported |
+| **Claude Code** | `claude.ai/code` | Global + Project-local *(prefer global)* | ✅ Supported |
 | Google Cloud Code | `googlecloudtools.cloudcode` | — | ❌ Not supported¹ |
 
 > ¹ Google Cloud Code is a GCP infrastructure tool. Its AI (Gemini Code Assist) doesn't implement the Agent Skills protocol.
@@ -53,7 +53,7 @@ rm -rf /tmp/hbc
 
 1. Restart VS Code → open Copilot Chat (`⌘⇧I` / `Ctrl+Shift+I`)
 2. Ask: **"How do I free up disk space used by Homebrew?"**
-3. ✅ **Expected:** a step-by-step answer mentioning `brew cleanup --dry-run`, `brew cleanup`, and `brew autoremove`
+3. **Expected:** a step-by-step answer mentioning `brew cleanup --dry-run`, `brew cleanup`, and `brew autoremove`
 
 > [!TIP]
 > If those commands appear in the response → the skill is active.
@@ -108,7 +108,7 @@ rm -rf /tmp/hbc
 
 1. Open the Codex chat panel in VS Code
 2. Ask: **"How do I free up disk space used by Homebrew?"**
-3. ✅ **Expected:** a step-by-step answer mentioning `brew cleanup --dry-run`, `brew cleanup`, and `brew autoremove`
+3. **Expected:** a step-by-step answer mentioning `brew cleanup --dry-run`, `brew cleanup`, and `brew autoremove`
 
 > [!TIP]
 > If those commands appear in the response → the skill is active.
@@ -116,16 +116,16 @@ rm -rf /tmp/hbc
 ### Update
 
 ```bash
-rm -rf ~/.codex/skills/homebrew      # global
-# rm -rf .codex/skills/homebrew     # project-local
+rm -rf ~/.codex/skills/homebrew     # global
+# rm -rf .codex/skills/homebrew    # project-local
 # Re-run the install commands above
 ```
 
 ### Uninstall
 
 ```bash
-rm -rf ~/.codex/skills/homebrew      # global
-rm -rf .codex/skills/homebrew        # project-local (if installed)
+rm -rf ~/.codex/skills/homebrew     # global
+rm -rf .codex/skills/homebrew       # project-local (if installed)
 ```
 
 </details>
@@ -165,7 +165,7 @@ rm -rf /tmp/hbc
 
 1. Open Claude Code and start a new conversation
 2. Ask: **"How do I free up disk space used by Homebrew?"**
-3. ✅ **Expected:** a step-by-step answer mentioning `brew cleanup --dry-run`, `brew cleanup`, and `brew autoremove`
+3. **Expected:** a step-by-step answer mentioning `brew cleanup --dry-run`, `brew cleanup`, and `brew autoremove`
 
 > [!TIP]
 > If those commands appear in the response → the skill is active.
@@ -173,16 +173,16 @@ rm -rf /tmp/hbc
 ### Update
 
 ```bash
-rm -rf ~/.claude/skills/homebrew     # global
-# rm -rf .claude/skills/homebrew    # project-local
+rm -rf ~/.claude/skills/homebrew    # global
+# rm -rf .claude/skills/homebrew   # project-local
 # Re-run the install commands above
 ```
 
 ### Uninstall
 
 ```bash
-rm -rf ~/.claude/skills/homebrew     # global
-rm -rf .claude/skills/homebrew       # project-local (if installed)
+rm -rf ~/.claude/skills/homebrew    # global
+rm -rf .claude/skills/homebrew      # project-local (if installed)
 ```
 
 </details>
