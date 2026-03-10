@@ -1,5 +1,3 @@
-<div align="center">
-
 # 🍺 homebrew-copilot-skill
 
 **Expert Homebrew knowledge for your AI coding assistant**
@@ -19,8 +17,6 @@
 <br><br>
 
 [📦 Install](homebrew/README.md) · [💬 Examples](homebrew/EXAMPLES.md) · [🤝 Contribute](CONTRIBUTING.md) · [📋 Changelog](CHANGELOG.md)
-
-</div>
 
 &nbsp;
 
@@ -60,7 +56,7 @@ This skill gives your AI assistant **expert-level Homebrew knowledge** — maint
 ### Installation Paths
 
 | Runtime | Global Path | Project-Local Path |
-|---------|-------------|-------------------|
+| --- | --- | --- |
 | **GitHub Copilot** | `~/.copilot/skills/homebrew` | `./.github/skills/homebrew` |
 | **OpenAI Codex** | `~/.codex/skills/homebrew` *(prefer global)* | `./.codex/skills/homebrew` |
 | **Claude Code** | `~/.claude/skills/homebrew` *(prefer global)* | `./.claude/skills/homebrew` |
@@ -76,7 +72,7 @@ This skill gives your AI assistant **expert-level Homebrew knowledge** — maint
 <br>
 
 | Topic | Details |
-|-------|----------|
+| --- | --- |
 | Platform identification | Intel `/usr/local` · Apple Silicon `/opt/homebrew` · Linux |
 | Maintenance workflow | `update → upgrade → cleanup → autoremove → doctor` |
 | Disk space | Assessment, cleanup, orphan removal, cache nuke |
