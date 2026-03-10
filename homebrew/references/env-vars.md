@@ -135,7 +135,7 @@ HOMEBREW_NO_AUTO_UPDATE=1 brew install git
 ## Recommended Configurations
 
 ### Disk-Conscious Developer
-```
+```text
 HOMEBREW_CLEANUP_MAX_AGE_DAYS=7
 HOMEBREW_CLEANUP_PERIODIC_FULL_DAYS=7
 HOMEBREW_NO_ANALYTICS=1
@@ -143,7 +143,7 @@ HOMEBREW_GITHUB_API_TOKEN=<your-token>
 ```
 
 ### CI/CD Pipeline
-```
+```text
 HOMEBREW_NO_AUTO_UPDATE=1
 HOMEBREW_NO_INSTALL_CLEANUP=1
 HOMEBREW_NO_ANALYTICS=1
@@ -151,7 +151,7 @@ HOMEBREW_DOWNLOAD_CONCURRENCY=4
 ```
 
 ### Multi-Version Developer (needs rollback capability)
-```
+```text
 HOMEBREW_NO_INSTALL_CLEANUP=1
 HOMEBREW_NO_CLEANUP_FORMULAE=python,ruby,node
 HOMEBREW_GITHUB_API_TOKEN=<your-token>
