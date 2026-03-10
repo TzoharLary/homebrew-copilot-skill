@@ -12,7 +12,7 @@ brew doctor
 
 `brew doctor` checks dozens of potential problems and explains each one. **Run this first before reporting any issue or trying other fixes.** Annotated output structure:
 
-```
+```text
 Please note that these warnings are just used to help the Homebrew maintainers
 with debugging if you file an issue. If everything you use Homebrew for is
 working fine: please don't worry and just ignore them. Thanks!
