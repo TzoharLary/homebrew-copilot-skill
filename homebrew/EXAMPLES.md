@@ -10,7 +10,7 @@ prompt you would type and a representative response from the AI.
 ### Example 1 — Full disk assessment and cleanup
 
 **Prompt:**
-```
+```text
 How much disk space is Homebrew using and how do I free it up?
 ```
 
@@ -46,7 +46,7 @@ brew cleanup --prune=all         # Remove the entire download cache, not just ol
 ### Example 2 — Finding the biggest packages
 
 **Prompt:**
-```
+```text
 Which of my installed Homebrew packages take the most space?
 ```
 
@@ -58,7 +58,7 @@ brew info --sizes --installed
 
 This lists all installed formulae and casks with their on-disk size. Output looks like:
 
-```
+```text
 gcc: 1.2 GB
 llvm: 847 MB
 python@3.12: 312 MB
@@ -81,7 +81,7 @@ If a formula has multiple versions installed (`brew list --multiple`), `brew cle
 ### Example 3 — Intel Mac to Apple Silicon migration
 
 **Prompt:**
-```
+```text
 I just switched from an Intel Mac to an M3 MacBook Pro. How do I migrate my Homebrew setup?
 ```
 
@@ -124,7 +124,7 @@ You cannot simply copy your Intel Homebrew installation to Apple Silicon — the
 ### Example 4 — Updating auto-updating apps
 
 **Prompt:**
-```
+```text
 I ran brew upgrade but Chrome and Slack didn't update. How do I update them?
 ```
 
@@ -156,7 +156,7 @@ Add that to your `~/.zshrc` or `~/.bashrc` to make it permanent.
 ### Example 5 — Reproducible Homebrew setup across machines
 
 **Prompt:**
-```
+```text
 How do I create a Brewfile so I can restore my exact Homebrew setup on a new machine?
 ```
 
